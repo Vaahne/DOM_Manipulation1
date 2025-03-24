@@ -24,6 +24,6 @@ var menuLinks = [
 for (let link of menuLinks) {
   let anchor = document.createElement("a");
   anchor.setAttribute("href", link.href);
-  anchor.innerText = link.text;
+  anchor.textContent = link.text;
   topMenuEl.appendChild(anchor);
 }
