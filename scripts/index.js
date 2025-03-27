@@ -87,8 +87,11 @@ topMenuEl.addEventListener('click',(e)=>{
             if(e1.target.tagName != 'A') return;
             console.log(e1.target.textContent);
             subMenuEl.style.top = "0";
+            // Removes the active css for the anchor tag
             e.target.classList.remove("active");
             let h1 = document.createElement("h1");
+
+            //To display the text content on mainEl
             h1.textContent = e1.target.textContent.toUpperCase();
             mainEl.textContent = "";
             mainEl.appendChild(h1);
@@ -97,7 +100,7 @@ topMenuEl.addEventListener('click',(e)=>{
          break;
     }
     else
-        subMenuEl.style.top = "0";
+        subMenuEl.style.top = "0";  // if no submenu, dont show subMenu
   }
 });
 
