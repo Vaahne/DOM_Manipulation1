@@ -48,7 +48,7 @@ for (let link of menuLinks) {
 }
 
 
-// ******************part 3 &4***************
+// ******************part 3&4&5***************
 let subMenuEl = document.getElementById("sub-menu");
 subMenuEl.style.height = "100%";
 subMenuEl.style.backgroundColor = "var(--sub-menu-bg)";
@@ -69,6 +69,13 @@ topMenuEl.addEventListener('click',(e)=>{
   topMenuEl.querySelectorAll("a").forEach(a=>{ a.classList.remove("active");});  
   e.target.classList.add("active");
 
+  // to display elements of top-menu on mainEl
+  let h1El= document.createElement("h1");
+  h1El.textContent= e.target.textContent.toUpperCase();
+  mainEl.textContent = "";
+  mainEl.appendChild(h1El);
+
+
   for(ml of menuLinks){
 
     if(ml.subLinks && ml.text === e.target.textContent.toLowerCase()){
@@ -82,21 +89,15 @@ topMenuEl.addEventListener('click',(e)=>{
             subMenuEl.style.top = "0";
             e.target.classList.remove("active");
             let h1 = document.createElement("h1");
-            // capitalize(e1.target.textContent);
-            h1.textContent = e1.target.textContent;
+            h1.textContent = e1.target.textContent.toUpperCase();
             mainEl.textContent = "";
             mainEl.appendChild(h1);
         });
 
          break;
     }
-    else if(!ml.subLinks){
+    else
         subMenuEl.style.top = "0";
-        let h1 = document.createElement("h1");
-        h1.textContent = ml.text;
-        mainEl.textContent = "";
-        mainEl.append(h1);
-    }
   }
 });
 
